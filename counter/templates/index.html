@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="app"></div>
+    <link rel="stylesheet" href="style.css">
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Coding Dojo stack scripts did not work, needed to update to CDN links provided by ReactJS themselves (crossorigin) --> 
+    <script type="text/babel">
+    class Counter extends React.Component {
+        constructor(props){
+           super(props);
+           this.state = {count:0};
+        }
+        render() {
+            return (
+                <div>
+                    <h1>{this.state.count}</h1>
+                    <button 
+                        onClick={() => this.setState({count:this.state.count+=1})}>+
+                    </button>
+                    <button 
+                        onClick={() => this.setState({count:this.state.count-=1})}>-
+                    </button>
+                </div> 
+            )
+        }
+    }
+    ReactDOM.render(
+        <Counter/>,
+        document.getElementById('app')
+    );
+    </script>
+</body>
+</html>
